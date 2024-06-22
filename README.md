@@ -1,3 +1,6 @@
+After fixing the tomo bug, I tried to invert the model. However I encountered 'LINE SEARCH FAILED'. I guessed that one shot was not enough, so I inverted with 30 shots, but I still got 'LINE SEARCH FAILED', but the gradient looks good, and the step length increase and misfit is decreasing, looks good.
+
+
 >2024-06-22 15:20:54 [INFO] | FINISH QUANTIFY MISFIT: 030
 2024-06-22 15:20:54 [INFO] | misfit f_try (i01s04) = 1.544E-04
 2024-06-22 15:20:54 [INFO] | saving misfit and step length for step count == 4
@@ -16,4 +19,4 @@ Line search has failed to reduce the misfit and has run out of fallback options.
 Aborting inversion.
 ================================================================================
 
-![fig1.png]
+![fig1.png](fig1.png)
