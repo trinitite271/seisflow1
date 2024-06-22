@@ -15,3 +15,5 @@
 Line search has failed to reduce the misfit and has run out of fallback options.
 Aborting inversion.
 ================================================================================
+
+![fig1.ong]
