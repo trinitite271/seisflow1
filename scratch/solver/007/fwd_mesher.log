@@ -1,0 +1,245 @@
+ 
+ **********************************************
+ *** Specfem 2-D Mesher - MPI version       ***
+ **********************************************
+ 
+ Running Git version of the code corresponding to 
+ e70c9c88e5f0a1edc64870c514ef52d08e5d1ef0
+ dating 2024-06-05 17:41:24 +0200
+ 
+ Reading the parameter file...
+ 
+ Title of the simulation: model test
+ 
+ Receiver lines:
+   Nb of line sets =            1
+ 
+ Parameter file successfully read 
+ 
+ 
+ Mesh from internal meshing:
+   Materials:
+   Nb of solid, fluid or porous materials =            1
+ 
+ --------
+ Material #           1  isotropic
+ rho,cp,cs   =    1960.00000000000        1600.00000000000     
+   800.000000000000     
+ Qkappa, Qmu =    9999.00000000000        9999.00000000000     
+ Material is solid
+ --------
+ 
+ Reading interface data from file: ./DATA/./interfaces.dat
+ Reading            2  points for interface            1
+ Reading            2  points for interface            2
+ 
+ Total number of layers in z direction =            1
+ There are           15  spectral elements along Z in layer            1
+ 
+ Total number of spectral elements along X =           45
+ Total number of spectral elements along Z =           15
+ 
+ Regions:
+   Nb of regions in the mesh =            1
+ 
+ ------
+ Region            1
+ IX from            1  to           45
+ IZ from            1  to           15
+ Material #            1  isotropic
+ Material is solid
+ vp     =    1600.000    
+ vs     =    800.0000    
+ rho    =    1960.000    
+ Poisson's ratio =   0.3333333    
+ QKappa =    9999.000    
+ Qmu    =    9999.000    
+ ------
+ 
+ creating mesh from internal meshing:
+   Total number of spectral elements         =          675
+ 
+ PML mesh elements:
+   Total number of PML elements =            0
+ 
+ The mesh contains          675  elements
+ 
+ Control elements have            4  nodes
+ 
+ Reading in SOURCE file...
+ 
+ Source           1
+   Position xs, zs =    37.0000000000000        59.0000000000000     
+ 
+   Source type (1=force, 2=moment tensor):            1
+   Force source:
+   Angle of the source (deg) =   0.000000000000000E+000
+ 
+   Time function type (1=Ricker, 2=First derivative, 3=Gaussian, 4=Dirac, 5=Heav
+ iside, 6,7=ocean type, 8=Read from file, 9=burst, 10=Sinusoidal, 11=Ormsby):
+           1
+   Ricker wavelet (second-derivative):
+   Frequency, delay =    30.0000000000000       0.000000000000000E+000
+   Multiplying factor  =    10000000000.0000     
+ 
+ all sources are okay
+ 
+ Normals to surface not needed
+ 
+ Node coordinates:
+ 
+ reading node coordinates from interfaces...
+ 
+ Mesh surfaces:
+   determining acoustic free surface...
+   number of acoustic elements with free surface =            0
+ 
+   determining absorbing boundary surfaces...
+   number of elements with absorbing boundaries =          120
+ 
+ 
+ Mesh dimensions: 
+   Min and max value of X in the grid =   0.000000000000000E+000
+   180.000000000000     
+   Min and max value of Z in the grid =   0.000000000000000E+000
+   60.0000000000000     
+ 
+ 
+ Saving the grid in Gnuplot format...
+ 
+ drawing horizontal lines of the grid
+ drawing vertical lines of the grid
+ Grid saved in Gnuplot format...
+ 
+ Mesh partitioning:
+   decomposing mesh using NPROC =            1
+ 
+ Graph construction:
+   graph adjacency done
+ 
+ Coupled interfaces:
+ nedges_coupled (acoustic/elastic)     =            0
+ nedges_coupled (acoustic/poroelastic) =            0
+ nedges_coupled (poroelastic/elastic)  =            0
+ 
+ Local numbering:
+   NPROC:            1
+   number of elements:          675
+ 
+ decompose mesh all done
+ 
+ Absorbing boundaries:
+   nedge_bound   :          120
+   nelemabs_merge:          120
+ 
+ Saving databases:
+   database file: ./OUTPUT_FILES/Database00000.bin
+   slice            0  has number of spectral elements =         675
+ 
+   VTK mesh files:
+   written file: ./OUTPUT_FILES//mesh_materials.vtk
+   written file: ./OUTPUT_FILES//mesh_partition_number.vtk
+   done
+ 
+ creating STATIONS file...
+ 
+ writing the ./DATA/STATIONS file
+ 
+ 
+ There are           90  receivers
+ 
+ Target positions (x,z) of the           90  receivers
+ 
+ Receiver            1  =    1.00000000000000        59.0000000000000     
+ Receiver            2  =    3.00000000000000        59.0000000000000     
+ Receiver            3  =    5.00000000000000        59.0000000000000     
+ Receiver            4  =    7.00000000000000        59.0000000000000     
+ Receiver            5  =    9.00000000000000        59.0000000000000     
+ Receiver            6  =    11.0000000000000        59.0000000000000     
+ Receiver            7  =    13.0000000000000        59.0000000000000     
+ Receiver            8  =    15.0000000000000        59.0000000000000     
+ Receiver            9  =    17.0000000000000        59.0000000000000     
+ Receiver           10  =    19.0000000000000        59.0000000000000     
+ Receiver           11  =    21.0000000000000        59.0000000000000     
+ Receiver           12  =    23.0000000000000        59.0000000000000     
+ Receiver           13  =    25.0000000000000        59.0000000000000     
+ Receiver           14  =    27.0000000000000        59.0000000000000     
+ Receiver           15  =    29.0000000000000        59.0000000000000     
+ Receiver           16  =    31.0000000000000        59.0000000000000     
+ Receiver           17  =    33.0000000000000        59.0000000000000     
+ Receiver           18  =    35.0000000000000        59.0000000000000     
+ Receiver           19  =    37.0000000000000        59.0000000000000     
+ Receiver           20  =    39.0000000000000        59.0000000000000     
+ Receiver           21  =    41.0000000000000        59.0000000000000     
+ Receiver           22  =    43.0000000000000        59.0000000000000     
+ Receiver           23  =    45.0000000000000        59.0000000000000     
+ Receiver           24  =    47.0000000000000        59.0000000000000     
+ Receiver           25  =    49.0000000000000        59.0000000000000     
+ Receiver           26  =    51.0000000000000        59.0000000000000     
+ Receiver           27  =    53.0000000000000        59.0000000000000     
+ Receiver           28  =    55.0000000000000        59.0000000000000     
+ Receiver           29  =    57.0000000000000        59.0000000000000     
+ Receiver           30  =    59.0000000000000        59.0000000000000     
+ Receiver           31  =    61.0000000000000        59.0000000000000     
+ Receiver           32  =    63.0000000000000        59.0000000000000     
+ Receiver           33  =    65.0000000000000        59.0000000000000     
+ Receiver           34  =    67.0000000000000        59.0000000000000     
+ Receiver           35  =    69.0000000000000        59.0000000000000     
+ Receiver           36  =    71.0000000000000        59.0000000000000     
+ Receiver           37  =    73.0000000000000        59.0000000000000     
+ Receiver           38  =    75.0000000000000        59.0000000000000     
+ Receiver           39  =    77.0000000000000        59.0000000000000     
+ Receiver           40  =    79.0000000000000        59.0000000000000     
+ Receiver           41  =    81.0000000000000        59.0000000000000     
+ Receiver           42  =    83.0000000000000        59.0000000000000     
+ Receiver           43  =    85.0000000000000        59.0000000000000     
+ Receiver           44  =    87.0000000000000        59.0000000000000     
+ Receiver           45  =    89.0000000000000        59.0000000000000     
+ Receiver           46  =    91.0000000000000        59.0000000000000     
+ Receiver           47  =    93.0000000000000        59.0000000000000     
+ Receiver           48  =    95.0000000000000        59.0000000000000     
+ Receiver           49  =    97.0000000000000        59.0000000000000     
+ Receiver           50  =    99.0000000000000        59.0000000000000     
+ Receiver           51  =    101.000000000000        59.0000000000000     
+ Receiver           52  =    103.000000000000        59.0000000000000     
+ Receiver           53  =    105.000000000000        59.0000000000000     
+ Receiver           54  =    107.000000000000        59.0000000000000     
+ Receiver           55  =    109.000000000000        59.0000000000000     
+ Receiver           56  =    111.000000000000        59.0000000000000     
+ Receiver           57  =    113.000000000000        59.0000000000000     
+ Receiver           58  =    115.000000000000        59.0000000000000     
+ Receiver           59  =    117.000000000000        59.0000000000000     
+ Receiver           60  =    119.000000000000        59.0000000000000     
+ Receiver           61  =    121.000000000000        59.0000000000000     
+ Receiver           62  =    123.000000000000        59.0000000000000     
+ Receiver           63  =    125.000000000000        59.0000000000000     
+ Receiver           64  =    127.000000000000        59.0000000000000     
+ Receiver           65  =    129.000000000000        59.0000000000000     
+ Receiver           66  =    131.000000000000        59.0000000000000     
+ Receiver           67  =    133.000000000000        59.0000000000000     
+ Receiver           68  =    135.000000000000        59.0000000000000     
+ Receiver           69  =    137.000000000000        59.0000000000000     
+ Receiver           70  =    139.000000000000        59.0000000000000     
+ Receiver           71  =    141.000000000000        59.0000000000000     
+ Receiver           72  =    143.000000000000        59.0000000000000     
+ Receiver           73  =    145.000000000000        59.0000000000000     
+ Receiver           74  =    147.000000000000        59.0000000000000     
+ Receiver           75  =    149.000000000000        59.0000000000000     
+ Receiver           76  =    151.000000000000        59.0000000000000     
+ Receiver           77  =    153.000000000000        59.0000000000000     
+ Receiver           78  =    155.000000000000        59.0000000000000     
+ Receiver           79  =    157.000000000000        59.0000000000000     
+ Receiver           80  =    159.000000000000        59.0000000000000     
+ Receiver           81  =    161.000000000000        59.0000000000000     
+ Receiver           82  =    163.000000000000        59.0000000000000     
+ Receiver           83  =    165.000000000000        59.0000000000000     
+ Receiver           84  =    167.000000000000        59.0000000000000     
+ Receiver           85  =    169.000000000000        59.0000000000000     
+ Receiver           86  =    171.000000000000        59.0000000000000     
+ Receiver           87  =    173.000000000000        59.0000000000000     
+ Receiver           88  =    175.000000000000        59.0000000000000     
+ Receiver           89  =    177.000000000000        59.0000000000000     
+ Receiver           90  =    179.000000000000        59.0000000000000     
+ 
+ This will be a serial simulation
+ 

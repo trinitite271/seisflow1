@@ -1,0 +1,1922 @@
+ 
+ **********************************************
+ **** Specfem 2-D Solver - MPI version     ****
+ **********************************************
+ 
+ Running Git version of the code corresponding to 
+ e70c9c88e5f0a1edc64870c514ef52d08e5d1ef0
+ dating 2024-06-05 17:41:24 +0200
+ 
+ There are            1  MPI processes
+ Processes are numbered from 0 to            0
+ 
+ There is a total of            1  slices
+ 
+ 
+ NDIM =            2
+ 
+ NGLLX =            5
+ NGLLZ =            5
+ 
+ using single precision for the calculations
+ 
+ smallest and largest possible floating-point numbers are:   1.1754944E-38
+  3.4028235E+38
+ 
+ Reading the parameter file...
+ 
+ Title of the simulation: model test
+ 
+ Receiver lines:
+   Nb of line sets =            1
+ 
+ Parameter file successfully read 
+ 
+ Reading in SOURCE file...
+ 
+ Source           1
+   Position xs, zs =    7.00000000000000        59.0000000000000     
+ 
+   Source type (1=force, 2=moment tensor):            1
+   Force source:
+   Angle of the source (deg) =   0.000000000000000E+000
+ 
+   Time function type (1=Ricker, 2=First derivative, 3=Gaussian, 4=Dirac, 5=Heav
+ iside, 6,7=ocean type, 8=Read from file, 9=burst, 10=Sinusoidal, 11=Ormsby):
+           1
+   Ricker wavelet (second-derivative):
+   Frequency, delay =    30.0000000000000       0.000000000000000E+000
+   Multiplying factor  =    10000000000.0000     
+ 
+ all sources are okay
+ 
+
+
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ Program SPECFEM2D: 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ model test
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ D a t e : 22 - 06 - 2024                                 T i m e  : 14:49:21
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+
+
+ C o n t r o l
+ =============
+
+     Number of spectral element control nodes. . .(npgeo) =     736
+     Number of space dimensions. . . . . . . . . . (NDIM) =       2
+
+
+ C o n t r o l
+ =============
+
+     Display frequency . . . (NTSTEP_BETWEEN_OUTPUT_INFO) =    500
+     Color display . . . . . . . . . . . . . . . (colors) =      1
+      == 0     black and white display              
+      == 1     color display                        
+     Numbered mesh . . . . . . . . . . . . . . .(numbers) =      0
+      == 0     do not number the mesh               
+      == 1     number the mesh                      
+
+
+ C o n t r o l
+ =============
+
+     Seismograms recording type . . . . . . .(seismotype) = 1
+     Angle for first line of receivers. . . . .(anglerec) =   0.00
+
+
+ C o n t r o l
+ =============
+
+     Read external initial field. . . . . .(initialfield) =      F
+     Add Bielak conditions (add_Bielak_conditions_bottom) =      F
+     Add Bielak conditions .(add_Bielak_conditions_right) =      F
+     Add Bielak conditions . .(add_Bielak_conditions_top) =      F
+     Add Bielak conditions. .(add_Bielak_conditions_left) =      F
+     Attenuation in solid . . .(ATTENUATION_VISCOELASTIC) =      F
+     Attenuation in fluid . . (ATTENUATION_VISCOACOUSTIC) =      F
+     Save grid in ASCII file or not . (output_grid_ASCII) =      F
+     Save a file with total energy or not.(OUTPUT_ENERGY) =      F
+
+
+ C o n t r o l
+ =============
+
+     Vector display type . . . . . . . . .(imagetype_postscript) =      1
+     Percentage of cut for vector plots. . . . . . . .(cutsnaps) =   1.00
+     Subsampling of velocity model display. (subsamp_postscript) =      1
+
+
+ I t e r a t i o n s 
+ ===================
+
+     Number of time iterations . . . . .(NSTEP) =    5000
+     Time step increment. . . . . . . . . .(DT) =   1.000000E-04
+     Total simulation duration . . . . . (ttot) =   5.000000E-01
+ 
+ 
+ reading mesh databases:
+ reading nodal coordinates...
+
+ -- Spectral Elements --
+
+
+     Number of spectral elements . . . . . . . . .  (nspec) =    675
+     Number of control nodes per element . . . . . (NGNOD) =      4
+     Number of points in X-direction . . . . . . . (NGLLX) =      5
+     Number of points in Y-direction . . . . . . . (NGLLZ) =      5
+     Number of points per element. . . . . . (NGLLX*NGLLZ) =     25
+     Number of points for display . . . . . . (pointsdisp) =      6
+     Number of element material sets . . . . . . . (numat) =      1
+     Number of acoustic forcing elements (nelem_acforcing) =      0
+     Number of acoustic free surf (nelem_acoustic_surface) =      0
+ 
+ reading attenuation setup...
+ reading material properties..
+
+
+ M a t e r i a l   s e t s :   2 D  (p o r o) e l a s t i c i t y
+ ======================================================
+
+     Number of material sets . . . . . . (numat) =     1
+
+
+     ----------------------------------------
+     -- Elastic (solid) isotropic material --
+     ----------------------------------------
+     Material set number. . . . . . . . (jmat) =     1
+     P-wave velocity. . . . . . . . . . . (cp) = 1.60000000E+03
+     S-wave velocity. . . . . . . . . . . (cs) = 8.00000000E+02
+     Mass density. . . . . . . . . . (density) = 1.96000000E+03
+     Poisson's ratio. . . . . . . . .(poisson) = 3.33333333E-01
+     First Lame parameter Lambda. . . (lambda) = 2.50880000E+09
+     Second Lame parameter Mu. . . . . . .(mu) = 1.25440000E+09
+     Bulk modulus Kappa . . . . . . . .(kappa) = 3.76320000E+09
+     Young's modulus E. . . . . . . . .(young) = 3.38688000E+09
+     QKappa_attenuation .  . . . . . .(QKappa) = 9.99900000E+03
+     Qmu_attenuation . . . . . . . . . . (Qmu) = 9.99900000E+03
+ 
+ reading interfaces informations...
+   number of interfaces         =            0
+ 
+ reading absorbing boundary...
+   Total number of absorbing elements =          120
+ 
+   any absorbing boundary flag        =  T
+   PML boundary flag                  =  F
+   Stacey boundary flag               =  T
+ 
+ 
+ Absorbing boundaries:
+   using Stacey absorbing boundary conditions
+ 
+   Total number of absorbing elements:          120
+     nspec_left   =           15
+     nspec_right  =           15
+     nspec_bottom =           45
+     nspec_top    =           45
+ 
+ 
+ reading acoustic forcing...
+   acoustic forcing                             =  F
+   number of acoustic forcing boundary elements =            0
+ 
+ reading free surface information...
+   number of acoustic free surface boundary elements =            0
+ 
+ reading coupling surfaces...
+   number of fluid-solid edges  =            0
+   number of fluid-poro  edges  =            0
+   number of solid-poro  edges  =            0
+ 
+ reading tangential curves...
+   number of tangential curve nodes =            0
+ 
+ reading axial elements...
+   number of axial elements     =            0
+ 
+ done reading mesh databases
+ 
+ 
+ Setting up mesh
+ 
+ Generating global mesh numbering (fast version)...
+ 
+ Mesh numbering:
+   Total number of elements:          675
+ 
+   Total number of acoustic elements           =            0
+   Total number of elastic/visco/poro elements =          675
+ 
+ Approximate total number of grid points in the mesh
+ (with a few duplicates coming from MPI buffers):        11041
+ 
+ Approximate number of acoustic degrees of freedom in the mesh:            0
+ Approximate number of elastic degrees of freedom in the mesh:        22082
+   (there are 2 degrees of freedom per point for elastic elements)
+ 
+ Approximate total number of degrees of freedom in the mesh
+ (sum of the two values above):        22082
+ 
+  (for simplicity viscoelastic or poroelastic elements, if any,
+   are counted as elastic in the above three estimates;
+   in reality they have more degrees of freedom)
+ 
+   saving ibool array to: ./DATA/proc000000_NSPEC_ibool.bin
+ 
+ Mesh dimensions:
+   Xmin,Xmax of the whole mesh =   0.000000000000000E+000
+   180.000000000000     
+   Zmin,Zmax of the whole mesh =   0.000000000000000E+000
+   60.0000000000000     
+ 
+ 
+ Generating gnuplot meshes...
+ 
+ Material properties:
+   MODEL                   : gll
+   nspec                   :          675
+   external velocity model :  T
+ 
+   assigning an external velocity and density model
+   model selected             : gll
+   setup with binary database :            1
+ 
+   reading external files: DATA/proc*****_rho.bin, .._vp.bin, .._vs.bin
+   rho min/max =    1727.488       2042.712    
+   vp  min/max =    963.5519       1885.318    
+   vs  min/max =    481.7759       942.6592    
+ 
+   done reading external model
+ 
+   setting up material arrays
+   setting up anisotropic arrays
+ 
+   rho : min/max =    1727.488     /   2042.712    
+   vs  : min/max =    481.7759     /   942.6592    
+   vp  : min/max =    963.5519     /   1885.318    
+ 
+   all material arrays done
+ 
+   written file: ./OUTPUT_FILES/mesh00000_vs.vtk
+   written file: ./OUTPUT_FILES/mesh00000_vp.vtk
+   written file: ./OUTPUT_FILES/mesh00000_rho.vtk
+ 
+ Domains:
+   total number of acoustic elements        =            0
+   total number of elastic elements         =          675
+   total number of poroelastic elements     =            0
+   total number of electromagnetic elements     =            0
+ 
+ Setting up MPI communication arrays
+ 
+   maximum number of MPI interfaces (for a single slice) =            0
+ 
+   This is a single process simulation, no need for MPI communication
+ 
+   number of outer elements  =            0
+   number of inner elements  =          675
+ 
+   percentage of outer elements   0.0000000E+00 %
+   percentage of inner elements    100.0000     %
+ 
+   number of global nodes in outer elements  =            0
+   number of global nodes in inner elements  =        11041
+ 
+   determining communication phases:
+   elastic domains:
+   total number of outer/inner elements =            0         675
+   total percentage of outer elements   0.0000000E+00 %
+   total percentage of inner elements    100.0000     %
+ 
+ All mesh setup done successfully
+ 
+ sources:
+   Total number of sources:            1
+ 
+ 
+   Setting parameters for source           1
+ 
+     Source Type. . . . . . . . . . . . . . = Collocated Force
+     X-position (meters). . . . . . . . . . =    7.0000000000E+00
+     Y-position (meters). . . . . . . . . . =    5.9000000000E+01
+     Fundamental frequency (Hz) . . . . . . =    3.0000000000E+01
+     Time delay (s) . . . . . . . . . . . . =    0.0000000000E+00
+     Multiplying factor . . . . . . . . . . =    1.0000000000E+10
+     Angle from vertical direction (deg). . =    0.0000000000E+00
+
+ 
+   Source:            1
+     Onset time. . . . . . =  -4.000000000000000E-002
+     Fundamental period. . =   3.333333333333333E-002
+     Fundamental frequency =    30.0000000000000     
+     The onset time is ok
+ 
+ Source:            1
+ *******************************
+  locating force source
+ *******************************
+ 
+ Force source:
+             original x:    7.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          632
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000000       0.500000000000001     
+ 
+ 
+ end of force source detection
+ 
+ 
+ receivers:
+ 
+ Total number of receivers =           90
+ 
+ 
+ ********************
+  locating receivers
+ ********************
+ 
+ reading receiver information from the ./DATA/STATIONS file
+ 
+ 
+ Station #            1     AA      S0001                           
+             original x:    1.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          631
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000000       0.500000000000001     
+ Distance from source:    6.000000      m
+ 
+ 
+ Station #            2     AA      S0002                           
+             original x:    3.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          631
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000000       0.500000000000001     
+ Distance from source:    4.000000      m
+ 
+ 
+ Station #            3     AA      S0003                           
+             original x:    5.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          632
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000000       0.499999999999998     
+ Distance from source:    2.000000      m
+ 
+ 
+ Station #            4     AA      S0004                           
+             original x:    7.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          632
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000000       0.500000000000001     
+ Distance from source:   0.0000000E+00  m
+ 
+ 
+ Station #            5     AA      S0005                           
+             original x:    9.000000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          633
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000000       0.499999999999998     
+ Distance from source:    2.000000      m
+ 
+ 
+ Station #            6     AA      S0006                           
+             original x:    11.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          633
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000000       0.500000000000001     
+ Distance from source:    4.000000      m
+ 
+ 
+ Station #            7     AA      S0007                           
+             original x:    13.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          634
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000000       0.499999999999998     
+ Distance from source:    6.000000      m
+ 
+ 
+ Station #            8     AA      S0008                           
+             original x:    15.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          634
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000000       0.500000000000001     
+ Distance from source:    8.000000      m
+ 
+ 
+ Station #            9     AA      S0009                           
+             original x:    17.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          635
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    10.00000      m
+ 
+ 
+ Station #           10     AA      S0010                           
+             original x:    19.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          635
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999999       0.499999999999998     
+ Distance from source:    12.00000      m
+ 
+ 
+ Station #           11     AA      S0011                           
+             original x:    21.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          636
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    14.00000      m
+ 
+ 
+ Station #           12     AA      S0012                           
+             original x:    23.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          636
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999999       0.500000000000001     
+ Distance from source:    16.00000      m
+ 
+ 
+ Station #           13     AA      S0013                           
+             original x:    25.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          637
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    18.00000      m
+ 
+ 
+ Station #           14     AA      S0014                           
+             original x:    27.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          637
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999999       0.499999999999998     
+ Distance from source:    20.00000      m
+ 
+ 
+ Station #           15     AA      S0015                           
+             original x:    29.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          638
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    22.00000      m
+ 
+ 
+ Station #           16     AA      S0016                           
+             original x:    31.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          638
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999999       0.499999999999998     
+ Distance from source:    24.00000      m
+ 
+ 
+ Station #           17     AA      S0017                           
+             original x:    33.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          639
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    26.00000      m
+ 
+ 
+ Station #           18     AA      S0018                           
+             original x:    35.00000    
+             original z:    59.00000    
+ Closest estimate found:   7.1054274E-15  m away
+  in rank            0
+  in element          639
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000001       0.500000000000001     
+ Distance from source:    28.00000      m
+ 
+ 
+ Station #           19     AA      S0019                           
+             original x:    37.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          640
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    30.00000      m
+ 
+ 
+ Station #           20     AA      S0020                           
+             original x:    39.00000    
+             original z:    59.00000    
+ Closest estimate found:   1.0048592E-14  m away
+  in rank            0
+  in element          640
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.499999999999998     
+ Distance from source:    32.00000      m
+ 
+ 
+ Station #           21     AA      S0021                           
+             original x:    41.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          641
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    34.00000      m
+ 
+ 
+ Station #           22     AA      S0022                           
+             original x:    43.00000    
+             original z:    59.00000    
+ Closest estimate found:   7.1054274E-15  m away
+  in rank            0
+  in element          641
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000001       0.499999999999998     
+ Distance from source:    36.00000      m
+ 
+ 
+ Station #           23     AA      S0023                           
+             original x:    45.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          642
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    38.00000      m
+ 
+ 
+ Station #           24     AA      S0024                           
+             original x:    47.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          642
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    40.00000      m
+ 
+ 
+ Station #           25     AA      S0025                           
+             original x:    49.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          643
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    42.00000      m
+ 
+ 
+ Station #           26     AA      S0026                           
+             original x:    51.00000    
+             original z:    59.00000    
+ Closest estimate found:   7.1054274E-15  m away
+  in rank            0
+  in element          643
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000001       0.500000000000001     
+ Distance from source:    44.00000      m
+ 
+ 
+ Station #           27     AA      S0027                           
+             original x:    53.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          644
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    46.00000      m
+ 
+ 
+ Station #           28     AA      S0028                           
+             original x:    55.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          644
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    48.00000      m
+ 
+ 
+ Station #           29     AA      S0029                           
+             original x:    57.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          645
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    50.00000      m
+ 
+ 
+ Station #           30     AA      S0030                           
+             original x:    59.00000    
+             original z:    59.00000    
+ Closest estimate found:   7.1054274E-15  m away
+  in rank            0
+  in element          645
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000001       0.500000000000001     
+ Distance from source:    52.00000      m
+ 
+ 
+ Station #           31     AA      S0031                           
+             original x:    61.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          646
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000001       0.499999999999998     
+ Distance from source:    54.00000      m
+ 
+ 
+ Station #           32     AA      S0032                           
+             original x:    63.00000    
+             original z:    59.00000    
+ Closest estimate found:   1.0048592E-14  m away
+  in rank            0
+  in element          646
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000001       0.500000000000001     
+ Distance from source:    56.00000      m
+ 
+ 
+ Station #           33     AA      S0033                           
+             original x:    65.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          647
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    58.00000      m
+ 
+ 
+ Station #           34     AA      S0034                           
+             original x:    67.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          647
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    60.00000      m
+ 
+ 
+ Station #           35     AA      S0035                           
+             original x:    69.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          648
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    62.00000      m
+ 
+ 
+ Station #           36     AA      S0036                           
+             original x:    71.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          648
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    64.00000      m
+ 
+ 
+ Station #           37     AA      S0037                           
+             original x:    73.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          649
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    66.00000      m
+ 
+ 
+ Station #           38     AA      S0038                           
+             original x:    75.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          649
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    68.00000      m
+ 
+ 
+ Station #           39     AA      S0039                           
+             original x:    77.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          650
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    70.00000      m
+ 
+ 
+ Station #           40     AA      S0040                           
+             original x:    79.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          650
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    72.00000      m
+ 
+ 
+ Station #           41     AA      S0041                           
+             original x:    81.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          651
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    74.00000      m
+ 
+ 
+ Station #           42     AA      S0042                           
+             original x:    83.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          651
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    76.00000      m
+ 
+ 
+ Station #           43     AA      S0043                           
+             original x:    85.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          652
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    78.00000      m
+ 
+ 
+ Station #           44     AA      S0044                           
+             original x:    87.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          652
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    80.00000      m
+ 
+ 
+ Station #           45     AA      S0045                           
+             original x:    89.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          653
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    82.00000      m
+ 
+ 
+ Station #           46     AA      S0046                           
+             original x:    91.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          653
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    84.00000      m
+ 
+ 
+ Station #           47     AA      S0047                           
+             original x:    93.00000    
+             original z:    59.00000    
+ Closest estimate found:   1.4210855E-14  m away
+  in rank            0
+  in element          654
+  in elastic domain
+  at xi,gamma coordinates =  -0.499999999999998       0.499999999999998     
+ Distance from source:    86.00000      m
+ 
+ 
+ Station #           48     AA      S0048                           
+             original x:    95.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          654
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    88.00000      m
+ 
+ 
+ Station #           49     AA      S0049                           
+             original x:    97.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          655
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    90.00000      m
+ 
+ 
+ Station #           50     AA      S0050                           
+             original x:    99.00000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          655
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    92.00000      m
+ 
+ 
+ Station #           51     AA      S0051                           
+             original x:    101.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          656
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    94.00000      m
+ 
+ 
+ Station #           52     AA      S0052                           
+             original x:    103.0000    
+             original z:    59.00000    
+ Closest estimate found:   1.4210855E-14  m away
+  in rank            0
+  in element          656
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    96.00000      m
+ 
+ 
+ Station #           53     AA      S0053                           
+             original x:    105.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          657
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    98.00000      m
+ 
+ 
+ Station #           54     AA      S0054                           
+             original x:    107.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          657
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    100.0000      m
+ 
+ 
+ Station #           55     AA      S0055                           
+             original x:    109.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          658
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    102.0000      m
+ 
+ 
+ Station #           56     AA      S0056                           
+             original x:    111.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          658
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    104.0000      m
+ 
+ 
+ Station #           57     AA      S0057                           
+             original x:    113.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          659
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    106.0000      m
+ 
+ 
+ Station #           58     AA      S0058                           
+             original x:    115.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          659
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    108.0000      m
+ 
+ 
+ Station #           59     AA      S0059                           
+             original x:    117.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          660
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    110.0000      m
+ 
+ 
+ Station #           60     AA      S0060                           
+             original x:    119.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          660
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    112.0000      m
+ 
+ 
+ Station #           61     AA      S0061                           
+             original x:    121.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          661
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    114.0000      m
+ 
+ 
+ Station #           62     AA      S0062                           
+             original x:    123.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          661
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    116.0000      m
+ 
+ 
+ Station #           63     AA      S0063                           
+             original x:    125.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          662
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    118.0000      m
+ 
+ 
+ Station #           64     AA      S0064                           
+             original x:    127.0000    
+             original z:    59.00000    
+ Closest estimate found:   1.4210855E-14  m away
+  in rank            0
+  in element          662
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999998       0.500000000000001     
+ Distance from source:    120.0000      m
+ 
+ 
+ Station #           65     AA      S0065                           
+             original x:    129.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          663
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    122.0000      m
+ 
+ 
+ Station #           66     AA      S0066                           
+             original x:    131.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          663
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    124.0000      m
+ 
+ 
+ Station #           67     AA      S0067                           
+             original x:    133.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          664
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    126.0000      m
+ 
+ 
+ Station #           68     AA      S0068                           
+             original x:    135.0000    
+             original z:    59.00000    
+ Closest estimate found:   2.8421709E-14  m away
+  in rank            0
+  in element          664
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    128.0000      m
+ 
+ 
+ Station #           69     AA      S0069                           
+             original x:    137.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          665
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    130.0000      m
+ 
+ 
+ Station #           70     AA      S0070                           
+             original x:    139.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          665
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    132.0000      m
+ 
+ 
+ Station #           71     AA      S0071                           
+             original x:    141.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          666
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    134.0000      m
+ 
+ 
+ Station #           72     AA      S0072                           
+             original x:    143.0000    
+             original z:    59.00000    
+ Closest estimate found:   2.8421709E-14  m away
+  in rank            0
+  in element          666
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    136.0000      m
+ 
+ 
+ Station #           73     AA      S0073                           
+             original x:    145.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          667
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    138.0000      m
+ 
+ 
+ Station #           74     AA      S0074                           
+             original x:    147.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          667
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    140.0000      m
+ 
+ 
+ Station #           75     AA      S0075                           
+             original x:    149.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          668
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    142.0000      m
+ 
+ 
+ Station #           76     AA      S0076                           
+             original x:    151.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          668
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    144.0000      m
+ 
+ 
+ Station #           77     AA      S0077                           
+             original x:    153.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          669
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    146.0000      m
+ 
+ 
+ Station #           78     AA      S0078                           
+             original x:    155.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          669
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    148.0000      m
+ 
+ 
+ Station #           79     AA      S0079                           
+             original x:    157.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          670
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    150.0000      m
+ 
+ 
+ Station #           80     AA      S0080                           
+             original x:    159.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          670
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    152.0000      m
+ 
+ 
+ Station #           81     AA      S0081                           
+             original x:    161.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          671
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    154.0000      m
+ 
+ 
+ Station #           82     AA      S0082                           
+             original x:    163.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          671
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    156.0000      m
+ 
+ 
+ Station #           83     AA      S0083                           
+             original x:    165.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          672
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    158.0000      m
+ 
+ 
+ Station #           84     AA      S0084                           
+             original x:    167.0000    
+             original z:    59.00000    
+ Closest estimate found:   2.8421709E-14  m away
+  in rank            0
+  in element          672
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    160.0000      m
+ 
+ 
+ Station #           85     AA      S0085                           
+             original x:    169.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          673
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    162.0000      m
+ 
+ 
+ Station #           86     AA      S0086                           
+             original x:    171.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          673
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    164.0000      m
+ 
+ 
+ Station #           87     AA      S0087                           
+             original x:    173.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          674
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    166.0000      m
+ 
+ 
+ Station #           88     AA      S0088                           
+             original x:    175.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          674
+  in elastic domain
+  at xi,gamma coordinates =   0.499999999999991       0.500000000000001     
+ Distance from source:    168.0000      m
+ 
+ 
+ Station #           89     AA      S0089                           
+             original x:    177.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          675
+  in elastic domain
+  at xi,gamma coordinates =  -0.500000000000005       0.499999999999998     
+ Distance from source:    170.0000      m
+ 
+ 
+ Station #           90     AA      S0090                           
+             original x:    179.0000    
+             original z:    59.00000    
+ Closest estimate found:   0.0000000E+00  m away
+  in rank            0
+  in element          675
+  in elastic domain
+  at xi,gamma coordinates =   0.500000000000005       0.500000000000001     
+ Distance from source:    172.0000      m
+ 
+ maximum error in location of all the receivers:   2.8421709E-14  m
+ 
+ end of receiver detection
+ 
+ found a total of           90  receivers, this is okay
+ 
+ 
+ adjoint sources:
+   adjoint source type:           1
+   reading ASCII adjoint source files
+   number of adjoint sources =           90
+   adjoint sources min/max   =   -1.002012       1.842241    
+ 
+ Preparing timerun:
+ 
+ Movie simulation:
+   color images         - JPEG image type:            2
+   number of steps between outputs       :          500
+ 
+ Preparing image coloring: jpeg
+   allocating color image arrays
+   locating all the pixels of color images
+   total number of image pixels =       221600
+   done locating all the pixels of color images
+   coloring image background based on velocity
+ 
+ Checking mesh and stability
+ 
+ ********
+ Model: P (or PI) velocity min,max =    963.551909292007     
+   1885.31854238957     
+ Model: S velocity min,max         =    481.775938933921     
+   942.659257170647     
+ Model: density min,max            =    1727.48803710938     
+   2042.71215820312     
+ ********
+ 
+ 
+ *********************************************
+ *** Verification of simulation parameters ***
+ *********************************************
+ 
+ *** Max grid size =    4.00000000000000     
+ *** Min grid size =    4.00000000000000     
+ *** Max/min ratio =    1.00000000000000     
+ 
+ *** Minimum GLL point distance  =   0.690692658584046     
+ *** Average GLL point distance  =    1.00000000000000     
+ 
+ *** Minimum period resolved     =   1.037826839394275E-002
+ *** Maximum frequency resolved  =    96.3551877867841      Hz
+ 
+ *** Maximum suggested time step                 =   1.831766470902629E-004
+ *** Maximum suggested (Ricker) source frequency =    38.5420751147137     
+ 
+ *** for DT :   9.9999997E-05
+ *** Max CFL stability condition of the time scheme based on P wave velocity (mu
+ st be below about 0.50 or so) =   0.272960559079137     
+ 
+ ----
+ Number of points per wavelength:
+ ----
+   Source            1
+   maximum dominant source frequency =    75.0000000000000      Hz
+ 
+ 
+   Nb pts / lambdaP_fmax min =    12.84736    
+   Nb pts / lambdaP_fmax max =    24.30434    
+ 
+   Nb pts / lambdaS_fmax min =    6.423679    
+   Nb pts / lambdaS_fmax max =    12.15217    
+ 
+ -----------------------------------------
+ 
+ histogram of min number of points per S wavelength in solid regions:
+ 
+ there are          675  elements out of          675  in solid regions
+   (i.e.,    100.0000     % of the total)
+ 
+ (too small = poor resolution of calculations -
+  too big = wasting memory and CPU time)
+ (threshold value is around 4.5 points per S wavelength
+  in elastic regions and 5.5 per P wavelength in fluid regions):
+ 
+   6.423679      -    6.710104              45     6.666667      %
+   6.710104      -    6.996529              45     6.666667      %
+   6.996529      -    7.282953              45     6.666667      %
+   7.282953      -    7.569378               2    0.2962963      %
+   7.569378      -    7.855803              43     6.370370      %
+   7.855803      -    8.142227              45     6.666667      %
+   8.142227      -    8.428652              45     6.666667      %
+   8.428652      -    8.715076               0    0.0000000E+00  %
+   8.715076      -    9.001501              45     6.666667      %
+   9.001501      -    9.287926              45     6.666667      %
+   9.287926      -    9.574350               0    0.0000000E+00  %
+   9.574350      -    9.860775              45     6.666667      %
+   9.860775      -    10.14720              45     6.666667      %
+   10.14720      -    10.43362               0    0.0000000E+00  %
+   10.43362      -    10.72005              45     6.666667      %
+   10.72005      -    11.00647              45     6.666667      %
+   11.00647      -    11.29290               0    0.0000000E+00  %
+   11.29290      -    11.57932              45     6.666667      %
+   11.57932      -    11.86575              45     6.666667      %
+   11.86575      -    12.15217              45     6.666667      %
+ 
+ total percentage =    100.000000000000       %
+ 
+ 
+ total number of elements in fluid and solid regions =          675
+ 
+ Preparing timerun constants
+ 
+ Preparing array allocations
+   arrays for elastic domains
+   done initialization
+ 
+ 
+ Preparing Stacey boundaries
+   total number of absorbing boundary faces/edges:          120
+ 
+ Attenuation:
+   viscoelastic  attenuation: F (shear & bulk attenuation in elastic domains)
+   viscoacoustic attenuation: F (bulk attenuation in acoustic domains)
+ 
+ Preparing mass matrices
+   initializing mass matrices
+   adding Stacey contributions to mass matrix
+   inverting mass matrices
+ 
+ 
+ Preparing kernel simulation:
+   estimated minimum period resolved by mesh        :   1.0378269E-02
+   estimated number of time steps for minimum period:          103
+   estimated steps between compute kernels (for a fair reconstruction): 
+          25
+ 
+   number of steps between compute kernels:            1
+ 
+ Preparing adjoint simulation
+   initializing adjoint sensitivity kernels
+   reading Stacey boundary arrays
+ 
+ Preparing source time function
+   time stepping scheme:   Newmark
+   time stepping stages:            1
+   time step size      :   9.9999997E-05
+ 
+   number of time steps:         5000
+   number of sources   :            1
+ 
+   saving the source time function in a text file...
+ 
+ saving binary database       : ./OUTPUT_FILES/proc000000_data.bin
+ saving binary sources info   : ./OUTPUT_FILES/proc000000_sources_info.bin
+ saving binary receivers info : ./OUTPUT_FILES/proc000000_receivers_info.bin
+ 
+ preparing optimized arrays
+   fused array done
+ 
+ Elapsed time for preparing timerun in seconds =   6.165807018987834E-002
+ 
+ ************
+  time loop
+ ************
+               scheme:         Newmark
+ 
+            time step:   9.9999997E-05  s
+ number of time steps:         5000
+ total simulated time:   0.5000000      seconds
+ start time: -3.9999999E-02  seconds
+ 
+
+ =========================================
+ =  T i m e  e v o l u t i o n  l o o p  =
+ =========================================
+
+ 
+ Starting time iteration loop ...
+ 
+ 
+ ******************************************************************
+ Time step #       5 out of    5000
+ ******************************************************************
+ Time: -3.960000E-02 s
+ We have done   8.0016002E-02 % of the total
+ Max norm of vector field in solid (elastic) =   9.1862595E-19
+ Max norm of backward vector field in solid (elastic) =   1.7263531E-03
+ Elapsed time in seconds =   1.100015640258789E-002
+ Elapsed time in hh:mm:ss =      0 h 00 m 00 s
+ Mean elapsed time per time step in seconds =   2.200031280517578E-003
+ Time steps remaining =         4995
+ Estimated remaining time in seconds =    10.9891562461853     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 10 s
+ Estimated total run time in seconds =    11.0001564025879     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 11 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+           5
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   2.617696593665924E-018
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+           5
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   1.586641301400959E-003
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #     500 out of    5000
+ ******************************************************************
+ Time:    0.0099 s
+ We have done    9.981997     % of the total
+ Max norm of vector field in solid (elastic) =   1.5749446E-12
+ Max norm of backward vector field in solid (elastic) =   2.1043012E-03
+ Elapsed time in seconds =    1.41600012779236     
+ Elapsed time in hh:mm:ss =      0 h 00 m 01 s
+ Mean elapsed time per time step in seconds =   2.832000255584717E-003
+ Time steps remaining =         4500
+ Estimated remaining time in seconds =    12.7440011501312     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 12 s
+ Estimated total run time in seconds =    14.1600012779236     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+         500
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   1.564989782730508E-012
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+         500
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   2.102918457239866E-003
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    1000 out of    5000
+ ******************************************************************
+ Time:    0.0599 s
+ We have done    19.98400     % of the total
+ Max norm of vector field in solid (elastic) =   5.6637282E-12
+ Max norm of backward vector field in solid (elastic) =   5.8040498E-03
+ Elapsed time in seconds =    2.84000015258789     
+ Elapsed time in hh:mm:ss =      0 h 00 m 02 s
+ Mean elapsed time per time step in seconds =   2.840000152587891E-003
+ Time steps remaining =         4000
+ Estimated remaining time in seconds =    11.3600006103516     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 11 s
+ Estimated total run time in seconds =    14.2000007629395     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ 
+ Total number of time steps done:         1000
+ Writing the seismograms by main proc alone took   0.1410718      seconds
+ 
+ Creating color image of size          800  x          291  for time step 
+        1000
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   3.284729476263348E-012
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        1000
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   5.517255514860153E-003
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    1500 out of    5000
+ ******************************************************************
+ Time:    0.1099 s
+ We have done    29.98600     % of the total
+ Max norm of vector field in solid (elastic) =   4.5052354E-11
+ Max norm of backward vector field in solid (elastic) =   7.7596076E-02
+ Elapsed time in seconds =    4.41799998283386     
+ Elapsed time in hh:mm:ss =      0 h 00 m 04 s
+ Mean elapsed time per time step in seconds =   2.945333321889241E-003
+ Time steps remaining =         3500
+ Estimated remaining time in seconds =    10.3086666266123     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 10 s
+ Estimated total run time in seconds =    14.7266666094462     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+        1500
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   3.366800241377810E-011
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        1500
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   7.712414115667343E-002
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    2000 out of    5000
+ ******************************************************************
+ Time:    0.1599 s
+ We have done    39.98800     % of the total
+ Max norm of vector field in solid (elastic) =   1.7804791E-10
+ Max norm of backward vector field in solid (elastic) =   0.1629405    
+ Elapsed time in seconds =    5.84299993515015     
+ Elapsed time in hh:mm:ss =      0 h 00 m 05 s
+ Mean elapsed time per time step in seconds =   2.921499967575073E-003
+ Time steps remaining =         3000
+ Estimated remaining time in seconds =    8.76449990272522     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 08 s
+ Estimated total run time in seconds =    14.6074998378754     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ 
+ Total number of time steps done:         2000
+ Writing the seismograms by main proc alone took   0.1299152      seconds
+ 
+ Creating color image of size          800  x          291  for time step 
+        2000
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   1.278626787781789E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        2000
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   0.119929902255535     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    2500 out of    5000
+ ******************************************************************
+ Time:    0.2099 s
+ We have done    49.99000     % of the total
+ Max norm of vector field in solid (elastic) =   2.3462171E-10
+ Max norm of backward vector field in solid (elastic) =   0.2620027    
+ Elapsed time in seconds =    7.38800001144409     
+ Elapsed time in hh:mm:ss =      0 h 00 m 07 s
+ Mean elapsed time per time step in seconds =   2.955200004577637E-003
+ Time steps remaining =         2500
+ Estimated remaining time in seconds =    7.38800001144409     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 07 s
+ Estimated total run time in seconds =    14.7760000228882     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+        2500
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   1.983223030244119E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        2500
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   0.215548202395439     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    3000 out of    5000
+ ******************************************************************
+ Time:    0.2599 s
+ We have done    59.99200     % of the total
+ Max norm of vector field in solid (elastic) =   2.8346975E-10
+ Max norm of backward vector field in solid (elastic) =   0.3192781    
+ Elapsed time in seconds =    8.80599999427795     
+ Elapsed time in hh:mm:ss =      0 h 00 m 08 s
+ Mean elapsed time per time step in seconds =   2.935333331425985E-003
+ Time steps remaining =         2000
+ Estimated remaining time in seconds =    5.87066666285197     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 05 s
+ Estimated total run time in seconds =    14.6766666571299     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ 
+ Total number of time steps done:         3000
+ Writing the seismograms by main proc alone took   0.1297509      seconds
+ 
+ Creating color image of size          800  x          291  for time step 
+        3000
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   2.306258101159031E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        3000
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   0.287240773439407     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    3500 out of    5000
+ ******************************************************************
+ Time:    0.3099 s
+ We have done    69.99400     % of the total
+ Max norm of vector field in solid (elastic) =   2.8247549E-10
+ Max norm of backward vector field in solid (elastic) =   0.3455971    
+ Elapsed time in seconds =    10.3580000400543     
+ Elapsed time in hh:mm:ss =      0 h 00 m 10 s
+ Mean elapsed time per time step in seconds =   2.959428582872663E-003
+ Time steps remaining =         1500
+ Estimated remaining time in seconds =    4.43914287430899     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 04 s
+ Estimated total run time in seconds =    14.7971429143633     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+        3500
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   2.791489261966262E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        3500
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   0.343936622142792     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    4000 out of    5000
+ ******************************************************************
+ Time:    0.3599 s
+ We have done    79.99600     % of the total
+ Max norm of vector field in solid (elastic) =   5.4176347E-10
+ Max norm of backward vector field in solid (elastic) =   0.5121740    
+ Elapsed time in seconds =    11.7880001068115     
+ Elapsed time in hh:mm:ss =      0 h 00 m 11 s
+ Mean elapsed time per time step in seconds =   2.947000026702881E-003
+ Time steps remaining =         1000
+ Estimated remaining time in seconds =    2.94700002670288     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 02 s
+ Estimated total run time in seconds =    14.7350001335144     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ 
+ Total number of time steps done:         4000
+ Writing the seismograms by main proc alone took   0.1311044      seconds
+ 
+ Creating color image of size          800  x          291  for time step 
+        4000
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   5.206364228627081E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        4000
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   0.472893595695496     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    4500 out of    5000
+ ******************************************************************
+ Time:    0.4099 s
+ We have done    89.99800     % of the total
+ Max norm of vector field in solid (elastic) =   7.1204770E-10
+ Max norm of backward vector field in solid (elastic) =    3.289452    
+ Elapsed time in seconds =    13.3420000076294     
+ Elapsed time in hh:mm:ss =      0 h 00 m 13 s
+ Mean elapsed time per time step in seconds =   2.964888890584310E-003
+ Time steps remaining =          500
+ Estimated remaining time in seconds =    1.48244444529216     
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 01 s
+ Estimated total run time in seconds =    14.8244444529215     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ The run will finish approximately on: Sat Jun 22, 2024 14:50
+ 
+ Creating color image of size          800  x          291  for time step 
+        4500
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   7.173033833574038E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        4500
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =    3.32587409019470     
+ Color image created
+ 
+ 
+ ******************************************************************
+ Time step #    5000 out of    5000
+ ******************************************************************
+ Time:    0.4599 s
+ We have done    100.0000     % of the total
+ Max norm of vector field in solid (elastic) =   1.6192885E-10
+ Max norm of backward vector field in solid (elastic) =   1.5827551E-06
+ Elapsed time in seconds =    14.7560000419617     
+ Elapsed time in hh:mm:ss =      0 h 00 m 14 s
+ Mean elapsed time per time step in seconds =   2.951200008392334E-003
+ Time steps remaining =            0
+ Estimated remaining time in seconds =   0.000000000000000E+000
+ Estimated remaining time in hh:mm:ss =      0 h 00 m 00 s
+ Estimated total run time in seconds =    14.7560000419617     
+ Estimated total run time in hh:mm:ss =      0 h 00 m 14 s
+ 
+ 
+ Total number of time steps done:         5000
+ Writing the seismograms by main proc alone took   0.1294718      seconds
+ 
+ Creating color image of size          800  x          291  for time step 
+        5000
+ drawing scalar image of the adjoint wavefield displacement...
+ Color image maximum amplitude =   1.393078707945250E-010
+ Color image created
+ Creating color image of size          800  x          291  for time step 
+        5000
+ drawing scalar image of the reconstructed forward wavefield displacement...
+ Color image maximum amplitude =   1.827748747018632E-006
+ Color image created
+ 
+ 
+ Time loop finished. Timing info:
+ Total duration of the time loop in seconds  =    14.92890      s
+ Total duration of the time loop in hh:mm:ss =      0 h 00 m 14 s
+ 
+ Total number of time steps =         5000
+ Average duration of a time step of the time loop =   2.9857801E-03  s
+ 
+ Total number of spectral elements in the mesh =          675
+     of which          675  are regular elements
+     and            0  are PML elements.
+ Average duration of the calculation per spectral element =   4.4233780E-06  s
+ 
+ 
+ Total duration of the timeloop measured using date and time of the system
+     in seconds     =    14.92900      s
+     in in hh:mm:ss =      0 h 00 m 14 s
+ 
+ 
+ Writing Kernels file
+ 
+ Elastic kernels:
+   maximum value of rho  kernel      =   8.4075946E-03
+   maximum value of kappa kernel     =   1.5112289E-02
+   maximum value of mu kernel        =   2.8722253E-04
+ 
+   maximum value of rho prime kernel =   1.0131505E-02
+   maximum value of alpha kernel     =   4.3657724E-02
+   maximum value of beta kernel      =   5.6800782E-04
+ 
+   ./OUTPUT_FILES/proc000000_rho_kernel.bin
+   ./OUTPUT_FILES/proc000000_kappa_kernel.bin
+   ./OUTPUT_FILES/proc000000_mu_kernel.bin
+   ./OUTPUT_FILES/proc000000_rhop_kernel.bin
+   ./OUTPUT_FILES/proc000000_alpha_kernel.bin
+   ./OUTPUT_FILES/proc000000_beta_kernel.bin
+   ./OUTPUT_FILES/proc000000_bulk_c_kernel.bin
+   ./OUTPUT_FILES/proc000000_bulk_beta_kernel.bin
+ 
+   ./OUTPUT_FILES/proc000000_weights_kernel.bin
+ 
+ 
+ Saving model files to directory: ./DATA/
+   SAVE_MODEL type: binary
+ 
+   written to file(s): ./DATA/proc000000_x.bin
+   written to file(s): ./DATA/proc000000_z.bin
+   written to file(s): ./DATA/proc000000_jacobian.bin
+   written to file(s): ./DATA/proc000000_rho.bin
+   written to file(s): ./DATA/proc000000_vp.bin
+   written to file(s): ./DATA/proc000000_vs.bin
+ 
+   done
+
+
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ Program SPECFEM2D: 
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ model test
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
+ D a t e : 22 - 06 - 2024                                 T i m e  : 14:49:37
+ -------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
